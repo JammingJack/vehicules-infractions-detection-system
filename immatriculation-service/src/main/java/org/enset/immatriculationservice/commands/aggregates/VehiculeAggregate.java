@@ -6,6 +6,7 @@ import ma.enset.coreapi.commands.CreateViheculeCommand;
 import ma.enset.coreapi.events.ProprietaireCreatedEvent;
 import ma.enset.coreapi.events.ViheculeCreatedEvent;
 import org.axonframework.commandhandling.CommandHandler;
+import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
@@ -37,6 +38,15 @@ public class VehiculeAggregate {
                 command.getModele(),
                 command.getPropietaireId()
         ));
+    }
+    @EventSourcingHandler
+    public void on(ViheculeCreatedEvent event){
+        this.vehiculeId = event.getId();
+        this.marque= event.getMarque();
+        this.modele = event.getModele();
+        this.numImmatriculation = event.getNumImmatriculation();
+        this.puissanceFiscale = event.getPuissanceFiscale();
+        this.proprietaireId = event.getPropietaireId();
     }
 
     @CommandHandler void handle(CreateProprietaireCommand command){
