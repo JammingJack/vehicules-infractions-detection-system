@@ -14,7 +14,7 @@ data class ViheculeCreatedEvent(
         val propietaireId : String
 ):BaseEvent<String>(id)
 
-data class PropietaireCreatedEvent(
+data class ProprietaireCreatedEvent(
         override val id: String,
         val name : String,
         val dateNaiss : String,

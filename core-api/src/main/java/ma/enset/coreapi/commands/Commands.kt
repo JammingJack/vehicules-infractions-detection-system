@@ -1,4 +1,4 @@
-
+package ma.enset.coreapi.commands
 
 import org.axonframework.modelling.command.TargetAggregateIdentifier
 import java.util.*
