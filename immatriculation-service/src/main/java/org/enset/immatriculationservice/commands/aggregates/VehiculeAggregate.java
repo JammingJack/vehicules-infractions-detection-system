@@ -44,8 +44,8 @@ public class VehiculeAggregate {
         AggregateLifecycle.apply(new ProprietaireCreatedEvent(
                 command.getId(),
                 command.getName(),
-                command.getDateNaiss(),
-                command.getEmail()
+                command.getEmail(),
+                command.getDateNaiss()
         ));
     }
 

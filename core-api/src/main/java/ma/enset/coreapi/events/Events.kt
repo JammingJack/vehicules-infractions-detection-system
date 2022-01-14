@@ -17,8 +17,8 @@ data class ViheculeCreatedEvent(
 data class ProprietaireCreatedEvent(
         override val id: String,
         val name : String,
-        val dateNaiss : String,
-        val email : String
+        val email : String,
+        val dateNaiss : Date,
 ):BaseEvent<String>(id)
 
 data class ViheculeSurpassedLimiteEvent(

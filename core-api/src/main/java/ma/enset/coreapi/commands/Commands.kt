@@ -21,8 +21,8 @@ data class CreateViheculeCommand(
 data class CreateProprietaireCommand(
         override val id: String,
         val name : String,
-        val dateNaiss : String,
-        val email : String
+        val email : String,
+        val dateNaiss : Date,
 ):BaseCommand<String>(id)
 
 data class VehiculePasseVitesseLimiteCommand(
