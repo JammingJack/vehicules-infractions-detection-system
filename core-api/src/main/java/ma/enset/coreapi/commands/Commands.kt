@@ -1,6 +1,7 @@
 
 
 import org.axonframework.modelling.command.TargetAggregateIdentifier
+import java.util.*
 
 abstract class BaseCommand<T>(
         @TargetAggregateIdentifier
@@ -13,6 +14,7 @@ data class CreateViheculeCommand(
         val marque : String,
         val puissanceFiscale : Double,
         val modele : String,
+        val propietaireId : String
 
 ):BaseCommand<String>(id)
 
@@ -23,9 +25,17 @@ data class CreateProprietaireCommand(
         val email : String
 ):BaseCommand<String>(id)
 
-data class VehiculePasseVitesseLimiteCommande(
+data class VehiculePasseVitesseLimiteCommand(
         override val id: String,
-        val dateInfraction : String,
+        val dateInfraction : Date,
         val numRadar : String,
         val matVihecule : String
+):BaseCommand<String>(id)
+
+data class CreateInfractureCommand(
+        override val id : String,
+        val dateInfraction : Date,
+        val numRadar : String,
+        val matVihecule : String,
+        val montantAmende : Double,
 ):BaseCommand<String>(id)
